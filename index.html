@@ -10,29 +10,29 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:url" content="https://liyongzheng666.github.io/tmux-ghostty-guide-pages/">
-  <meta name="theme-color" content="#06131a">
+  <meta name="theme-color" content="#9ad8ff">
   <style>
     :root {
-      --bg: #06131a;
-      --bg-soft: rgba(8, 24, 31, 0.72);
-      --panel: rgba(8, 20, 27, 0.84);
-      --panel-strong: rgba(8, 20, 27, 0.96);
-      --line: rgba(116, 208, 191, 0.18);
-      --line-strong: rgba(116, 208, 191, 0.36);
-      --text: #ebfff8;
-      --muted: #9bc6bb;
-      --accent: #74d0bf;
-      --accent-2: #ffb86b;
-      --accent-3: #82e6ff;
-      --danger: #ff8f78;
-      --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-      --radius-xl: 28px;
-      --radius-lg: 22px;
-      --radius-md: 16px;
-      --radius-sm: 12px;
-      --mono: "JetBrains Mono", "SF Mono", "IBM Plex Mono", "Menlo", monospace;
-      --display: "Space Grotesk", "Avenir Next", "Trebuchet MS", sans-serif;
-      --sans: "Instrument Sans", "Avenir Next", "Helvetica Neue", sans-serif;
+      --bg: #9ad8ff;
+      --bg-soft: rgba(255, 249, 228, 0.88);
+      --panel: rgba(255, 246, 216, 0.92);
+      --panel-strong: rgba(255, 252, 238, 0.98);
+      --line: rgba(116, 85, 44, 0.32);
+      --line-strong: rgba(116, 85, 44, 0.82);
+      --text: #352617;
+      --muted: #6c5a42;
+      --accent: #7fb44b;
+      --accent-2: #e4a24b;
+      --accent-3: #5f8fca;
+      --danger: #c96c5d;
+      --shadow: 0 6px 0 rgba(116, 85, 44, 0.35), 0 18px 32px rgba(102, 79, 53, 0.18);
+      --radius-xl: 16px;
+      --radius-lg: 12px;
+      --radius-md: 10px;
+      --radius-sm: 8px;
+      --mono: "Monaco", "SF Mono", "Menlo", "Courier New", monospace;
+      --display: "Trebuchet MS", "Verdana", sans-serif;
+      --sans: "Trebuchet MS", "Avenir Next", "Verdana", sans-serif;
     }
 
     * {
@@ -48,10 +48,7 @@
       font-family: var(--sans);
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(130, 230, 255, 0.18), transparent 26%),
-        radial-gradient(circle at 80% 0%, rgba(255, 184, 107, 0.2), transparent 24%),
-        radial-gradient(circle at bottom right, rgba(116, 208, 191, 0.18), transparent 24%),
-        linear-gradient(145deg, #041018, #071920 35%, #030b10 100%);
+        linear-gradient(180deg, #98d8ff 0%, #c9efff 38%, #f8efc7 38%, #f2d28c 62%, #7cbc4b 62%, #67a43d 100%);
       min-height: 100vh;
       overflow-x: hidden;
     }
@@ -67,15 +64,18 @@
 
     body::before {
       background-image:
-        linear-gradient(rgba(116, 208, 191, 0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(116, 208, 191, 0.07) 1px, transparent 1px);
-      background-size: 72px 72px;
-      mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.05));
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.14) 0 2px, transparent 2px 28px),
+        repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0 2px, transparent 2px 28px);
+      background-size: 28px 28px;
+      opacity: 0.35;
+      mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.16) 65%, transparent);
     }
 
     body::after {
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.03), transparent 18%, transparent 82%, rgba(255, 255, 255, 0.03));
-      opacity: 0.35;
+      background:
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.22), transparent 22%, transparent 74%, rgba(97, 151, 57, 0.16)),
+        repeating-linear-gradient(90deg, rgba(111, 170, 72, 0.16) 0 18px, rgba(97, 154, 59, 0.16) 18px 36px);
+      opacity: 0.42;
     }
 
     a {
@@ -102,10 +102,9 @@
       align-items: center;
       gap: 12px;
       padding: 14px 18px;
-      border: 1px solid var(--line);
-      background: rgba(5, 18, 24, 0.65);
-      backdrop-filter: blur(14px);
-      border-radius: 999px;
+      border: 3px solid var(--line-strong);
+      background: var(--panel-strong);
+      border-radius: var(--radius-lg);
       position: sticky;
       top: 16px;
       z-index: 20;
@@ -122,14 +121,15 @@
     .brand-mark {
       width: 42px;
       height: 42px;
-      border-radius: 14px;
+      border-radius: var(--radius-sm);
       display: grid;
       place-items: center;
       font-family: var(--mono);
-      color: #051117;
+      color: #2c1e12;
       font-size: 0.92rem;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 10px 28px rgba(116, 208, 191, 0.28);
+      background: linear-gradient(180deg, #ffd982, var(--accent-2));
+      box-shadow: 4px 4px 0 rgba(116, 85, 44, 0.26);
+      border: 2px solid rgba(116, 85, 44, 0.45);
     }
 
     .brand-text strong {
@@ -158,19 +158,20 @@
     .nav a {
       text-decoration: none;
       padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--muted);
-      background: rgba(255, 255, 255, 0.02);
+      border-radius: var(--radius-sm);
+      border: 2px solid rgba(116, 85, 44, 0.28);
+      color: var(--text);
+      background: rgba(255, 249, 232, 0.9);
       transition: 180ms ease;
       font-size: 0.92rem;
+      box-shadow: 2px 2px 0 rgba(116, 85, 44, 0.14);
     }
 
     .nav a:hover {
       transform: translateY(-1px);
       color: var(--text);
       border-color: var(--line-strong);
-      background: rgba(116, 208, 191, 0.08);
+      background: rgba(127, 180, 75, 0.18);
     }
 
     .hero {
@@ -182,9 +183,9 @@
     }
 
     .panel {
-      border: 1px solid var(--line);
+      border: 3px solid var(--line-strong);
       border-radius: var(--radius-xl);
-      background: linear-gradient(180deg, rgba(7, 20, 26, 0.86), rgba(4, 13, 18, 0.94));
+      background: linear-gradient(180deg, var(--panel-strong), var(--panel));
       box-shadow: var(--shadow);
       overflow: hidden;
     }
@@ -197,12 +198,28 @@
     .hero-copy::after {
       content: "";
       position: absolute;
-      inset: auto -12% -22% auto;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255, 184, 107, 0.2), transparent 68%);
-      filter: blur(10px);
+      inset: auto 24px 24px auto;
+      width: 88px;
+      height: 88px;
+      border-radius: 0;
+      background: linear-gradient(180deg, #ffe889, #f4b34e);
+      box-shadow:
+        14px 0 0 rgba(255, 255, 255, 0.55),
+        -12px 12px 0 rgba(255, 255, 255, 0.38),
+        0 14px 0 rgba(255, 255, 255, 0.42);
+      opacity: 0.34;
+      pointer-events: none;
+    }
+
+    .hero-copy::before {
+      content: "";
+      position: absolute;
+      left: 34px;
+      right: 34px;
+      bottom: 24px;
+      height: 14px;
+      background: repeating-linear-gradient(90deg, rgba(127, 180, 75, 0.26) 0 16px, rgba(105, 164, 61, 0.26) 16px 32px);
+      border-radius: 4px;
       pointer-events: none;
     }
 
@@ -211,10 +228,10 @@
       align-items: center;
       gap: 8px;
       padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(130, 230, 255, 0.2);
-      background: rgba(130, 230, 255, 0.08);
-      color: var(--accent-3);
+      border-radius: var(--radius-sm);
+      border: 2px solid rgba(116, 85, 44, 0.24);
+      background: rgba(127, 180, 75, 0.16);
+      color: #2f5d25;
       font-size: 0.85rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -226,12 +243,14 @@
       margin: 0;
       font-family: var(--display);
       letter-spacing: -0.03em;
+      color: #355329;
+      text-shadow: 2px 2px 0 rgba(255, 250, 236, 0.85);
     }
 
     h1 {
       margin-top: 18px;
       font-size: clamp(2.4rem, 5vw, 4.8rem);
-      line-height: 0.94;
+      line-height: 0.98;
       max-width: 11ch;
     }
 
@@ -246,11 +265,11 @@
     .cover-banner {
       margin-top: 26px;
       padding: 18px;
-      border-radius: 22px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      border: 3px solid rgba(116, 85, 44, 0.26);
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
-        linear-gradient(135deg, rgba(130, 230, 255, 0.1), rgba(255, 184, 107, 0.08));
+        linear-gradient(180deg, rgba(255, 251, 240, 0.9), rgba(250, 236, 188, 0.92)),
+        linear-gradient(135deg, rgba(147, 218, 255, 0.2), rgba(255, 224, 144, 0.14));
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 18px;
@@ -266,7 +285,7 @@
       width: 180px;
       height: 180px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(116, 208, 191, 0.16), transparent 70%);
+      background: radial-gradient(circle, rgba(127, 180, 75, 0.18), transparent 70%);
       pointer-events: none;
     }
 
@@ -284,10 +303,10 @@
       align-items: center;
       gap: 8px;
       padding: 7px 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--accent-3);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 246, 216, 0.9);
+      border: 2px solid rgba(116, 85, 44, 0.22);
+      color: #5f8fca;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       font-size: 0.76rem;
@@ -313,9 +332,9 @@
       gap: 8px;
       width: fit-content;
       padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(116, 208, 191, 0.22);
-      background: rgba(3, 14, 18, 0.54);
+      border-radius: var(--radius-sm);
+      border: 2px solid rgba(95, 143, 202, 0.34);
+      background: rgba(232, 246, 255, 0.88);
       color: var(--text);
       text-decoration: none;
       font-family: var(--mono);
@@ -327,7 +346,7 @@
     .cover-url:hover {
       transform: translateY(-1px);
       border-color: var(--line-strong);
-      background: rgba(116, 208, 191, 0.08);
+      background: rgba(195, 234, 255, 0.98);
     }
 
     .cover-metrics {
@@ -342,9 +361,9 @@
       gap: 4px;
       min-width: 110px;
       padding: 12px 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      background: rgba(255, 255, 255, 0.03);
+      border-radius: var(--radius-sm);
+      border: 2px solid rgba(116, 85, 44, 0.16);
+      background: rgba(255, 252, 241, 0.9);
     }
 
     .cover-metric strong {
@@ -373,27 +392,29 @@
       gap: 8px;
       min-height: 48px;
       padding: 0 18px;
-      border-radius: 999px;
+      border-radius: var(--radius-sm);
       text-decoration: none;
-      border: 1px solid transparent;
+      border: 2px solid transparent;
       transition: 180ms ease;
       font-weight: 600;
     }
 
     .button-primary {
-      color: #041117;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 16px 30px rgba(116, 208, 191, 0.24);
+      color: #203015;
+      background: linear-gradient(180deg, #98d25f, var(--accent));
+      border-color: rgba(84, 123, 46, 0.55);
+      box-shadow: 0 4px 0 rgba(84, 123, 46, 0.34);
     }
 
     .button-secondary {
       color: var(--text);
-      border-color: var(--line);
-      background: rgba(255, 255, 255, 0.03);
+      border-color: rgba(116, 85, 44, 0.28);
+      background: rgba(255, 249, 232, 0.96);
+      box-shadow: 0 4px 0 rgba(116, 85, 44, 0.16);
     }
 
     .button:hover {
-      transform: translateY(-2px);
+      transform: translateY(-1px);
     }
 
     .hero-side {
@@ -406,37 +427,41 @@
     .cover-stage {
       position: relative;
       min-height: 270px;
-      border-radius: 26px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-lg);
+      border: 3px solid rgba(116, 85, 44, 0.28);
       overflow: hidden;
       padding: 22px;
       background:
-        radial-gradient(circle at top right, rgba(255, 184, 107, 0.22), transparent 30%),
-        radial-gradient(circle at left center, rgba(130, 230, 255, 0.18), transparent 28%),
-        linear-gradient(145deg, rgba(7, 22, 29, 0.96), rgba(3, 11, 15, 0.96));
+        linear-gradient(180deg, #90d8ff 0%, #d0f0ff 48%, #a2d567 48%, #7db84f 100%);
     }
 
     .cover-stage::before,
     .cover-stage::after {
       content: "";
       position: absolute;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 0;
+      border: 0;
       pointer-events: none;
     }
 
     .cover-stage::before {
-      width: 360px;
-      height: 360px;
-      right: -160px;
-      top: -120px;
+      width: 72px;
+      height: 72px;
+      right: 28px;
+      top: 26px;
+      background: linear-gradient(180deg, #ffe77b, #f3ae48);
+      box-shadow:
+        -18px 10px 0 rgba(255, 255, 255, 0.78),
+        -34px 24px 0 rgba(255, 255, 255, 0.62),
+        16px 22px 0 rgba(255, 255, 255, 0.7);
     }
 
     .cover-stage::after {
-      width: 260px;
-      height: 260px;
-      left: -120px;
-      bottom: -140px;
+      left: 0;
+      right: 0;
+      bottom: 18px;
+      height: 12px;
+      background: repeating-linear-gradient(90deg, rgba(92, 150, 48, 0.62) 0 14px, rgba(112, 177, 58, 0.62) 14px 28px);
     }
 
     .cover-stage-header {
@@ -453,10 +478,10 @@
       align-items: center;
       gap: 8px;
       padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--accent-3);
+      border-radius: var(--radius-sm);
+      border: 2px solid rgba(116, 85, 44, 0.2);
+      background: rgba(255, 252, 241, 0.88);
+      color: #5f8fca;
       font-size: 0.8rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -465,9 +490,9 @@
     .cover-badge-dot {
       width: 8px;
       height: 8px;
-      border-radius: 50%;
+      border-radius: 2px;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 0 0 6px rgba(116, 208, 191, 0.12);
+      box-shadow: 0 0 0 4px rgba(127, 180, 75, 0.12);
     }
 
     .cover-platforms {
@@ -480,9 +505,9 @@
 
     .cover-platforms span {
       padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.04);
+      border-radius: var(--radius-sm);
+      border: 2px solid rgba(116, 85, 44, 0.16);
+      background: rgba(255, 252, 241, 0.88);
       color: var(--muted);
       font-size: 0.82rem;
     }
@@ -517,10 +542,9 @@
 
     .cover-stack-card,
     .cover-stack-list {
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(10px);
+      border-radius: var(--radius-md);
+      border: 2px solid rgba(116, 85, 44, 0.18);
+      background: rgba(255, 252, 241, 0.88);
       overflow: hidden;
     }
 
@@ -542,7 +566,7 @@
     }
 
     .cover-stack-line span:first-child {
-      color: var(--accent-2);
+      color: #d88d2d;
       font-family: var(--mono);
       font-size: 0.82rem;
     }
@@ -555,9 +579,9 @@
 
     .cover-stack-item {
       padding: 12px 14px;
-      border-radius: 14px;
-      background: rgba(0, 0, 0, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 248, 226, 0.96);
+      border: 2px solid rgba(116, 85, 44, 0.12);
     }
 
     .cover-stack-item strong {
@@ -599,12 +623,13 @@
       display: grid;
       gap: 16px;
       background:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.08)),
-        linear-gradient(135deg, rgba(116, 208, 191, 0.08), rgba(130, 230, 255, 0.03));
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 22px;
+        linear-gradient(180deg, rgba(66, 47, 28, 0.96), rgba(49, 35, 20, 0.96)),
+        linear-gradient(135deg, rgba(228, 162, 75, 0.08), rgba(127, 180, 75, 0.08));
+      border: 3px solid rgba(116, 85, 44, 0.42);
+      border-radius: var(--radius-lg);
       padding: 22px;
       min-height: 100%;
+      box-shadow: inset 0 0 0 2px rgba(255, 247, 220, 0.08);
     }
 
     .terminal-line {
@@ -639,8 +664,9 @@
     .mini-card {
       padding: 18px;
       border-radius: var(--radius-md);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      background: rgba(255, 255, 255, 0.03);
+      border: 2px solid rgba(116, 85, 44, 0.16);
+      background: rgba(255, 252, 241, 0.9);
+      box-shadow: 3px 3px 0 rgba(116, 85, 44, 0.12);
     }
 
     .mini-card strong {
@@ -706,8 +732,8 @@
     .guide-card {
       padding: 22px;
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
+      border: 2px solid rgba(116, 85, 44, 0.16);
+      background: linear-gradient(180deg, rgba(255, 252, 241, 0.92), rgba(249, 240, 213, 0.92));
       position: relative;
       overflow: hidden;
     }
@@ -716,10 +742,10 @@
       content: "";
       position: absolute;
       inset: auto -30px -50px auto;
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(116, 208, 191, 0.12), transparent 70%);
+      width: 96px;
+      height: 24px;
+      border-radius: 4px;
+      background: repeating-linear-gradient(90deg, rgba(127, 180, 75, 0.18) 0 12px, rgba(228, 162, 75, 0.18) 12px 24px);
       pointer-events: none;
     }
 
@@ -745,10 +771,10 @@
       grid-template-columns: minmax(160px, 190px) 1fr;
       gap: 14px;
       align-items: center;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border: 2px solid rgba(116, 85, 44, 0.16);
       border-radius: var(--radius-md);
       padding: 16px;
-      background: rgba(255, 255, 255, 0.025);
+      background: rgba(255, 252, 241, 0.88);
     }
 
     .shortcut .keys {
@@ -759,16 +785,16 @@
     }
 
     .kbd {
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+      border-radius: 6px;
+      border: 2px solid rgba(116, 85, 44, 0.22);
+      background: linear-gradient(180deg, #fff7dc, #f3e1a8);
       padding: 7px 10px;
       min-width: 34px;
       text-align: center;
       font-family: var(--mono);
       font-size: 0.88rem;
-      color: var(--text);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      color: #3f2a18;
+      box-shadow: 2px 2px 0 rgba(116, 85, 44, 0.12);
     }
 
     .shortcut h4 {
@@ -792,19 +818,19 @@
 
     .pill {
       padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--muted);
-      background: rgba(255, 255, 255, 0.03);
+      border-radius: var(--radius-sm);
+      border: 2px solid rgba(116, 85, 44, 0.16);
+      color: var(--text);
+      background: rgba(255, 248, 226, 0.92);
       font-size: 0.88rem;
     }
 
     .code-block {
       position: relative;
       padding: 18px;
-      background: rgba(1, 9, 12, 0.75);
+      background: linear-gradient(180deg, rgba(76, 55, 34, 0.96), rgba(58, 41, 24, 0.96));
       border-radius: var(--radius-md);
-      border: 1px solid rgba(130, 230, 255, 0.15);
+      border: 3px solid rgba(116, 85, 44, 0.42);
       overflow: auto;
     }
 
@@ -812,10 +838,10 @@
       position: absolute;
       top: 14px;
       right: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--text);
-      border-radius: 999px;
+      border: 2px solid rgba(255, 243, 205, 0.18);
+      background: rgba(255, 249, 232, 0.08);
+      color: #fff7dc;
+      border-radius: 6px;
       padding: 8px 12px;
       cursor: pointer;
       transition: 160ms ease;
@@ -823,15 +849,15 @@
     }
 
     .code-block button:hover {
-      background: rgba(116, 208, 191, 0.14);
-      border-color: var(--line-strong);
+      background: rgba(127, 180, 75, 0.24);
+      border-color: rgba(255, 243, 205, 0.3);
     }
 
     pre {
       margin: 0;
       font-size: 0.93rem;
       line-height: 1.75;
-      color: #e6fff7;
+      color: #fff9e7;
       white-space: pre-wrap;
     }
 
@@ -844,8 +870,8 @@
     .ghostty-card {
       padding: 22px;
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(255, 255, 255, 0.03);
+      border: 2px solid rgba(116, 85, 44, 0.16);
+      background: rgba(255, 252, 241, 0.9);
     }
 
     .ghostty-card h3 {
@@ -878,7 +904,7 @@
       top: 0.72em;
       width: 8px;
       height: 8px;
-      border-radius: 50%;
+      border-radius: 2px;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
     }
 
@@ -891,8 +917,8 @@
     .flow-step {
       padding: 22px;
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(255, 255, 255, 0.03);
+      border: 2px solid rgba(116, 85, 44, 0.16);
+      background: rgba(255, 252, 241, 0.9);
       position: relative;
     }
 
@@ -901,9 +927,9 @@
       height: 34px;
       display: grid;
       place-items: center;
-      border-radius: 50%;
-      background: rgba(116, 208, 191, 0.12);
-      color: var(--accent);
+      border-radius: 6px;
+      background: rgba(127, 180, 75, 0.18);
+      color: #355329;
       font-family: var(--mono);
       margin-bottom: 14px;
     }
@@ -923,9 +949,9 @@
     .footer {
       margin-top: 26px;
       padding: 24px 28px;
-      border: 1px solid var(--line);
+      border: 3px solid var(--line-strong);
       border-radius: var(--radius-xl);
-      background: rgba(3, 14, 18, 0.85);
+      background: rgba(255, 248, 221, 0.94);
       color: var(--muted);
       line-height: 1.75;
     }
@@ -1004,7 +1030,7 @@
         <div class="brand-mark">tm</div>
         <div class="brand-text">
           <strong>tmux × Ghostty</strong>
-          <span>Mac 新手静态网页指南</span>
+          <span>像素田园版新手指南</span>
         </div>
       </div>
       <nav class="nav">
@@ -1017,21 +1043,21 @@
 
     <section class="hero">
       <article class="panel hero-copy fade-in">
-        <span class="eyebrow">Mac + Ghostty 定制版</span>
-        <h1>把 tmux 变成你的终端驾驶舱</h1>
+        <span class="eyebrow">Mac + Ghostty 像素冒险版</span>
+        <h1>把终端整理成一座像素小屋</h1>
         <p>
-          这不是一份抽象的命令清单，而是一份可以直接交给新人的上手页面。
-          重点只讲三件事：如何启动一个 <span class="mono">session</span>、如何管理 <span class="mono">window</span>、以及如何熟练地操作 <span class="mono">pane</span>。
-          同时补上 Ghostty 用户最在意的分工建议，让外层终端和内层工作区各司其职。
+          给刚开始接触 tmux 的 Mac 用户。
+          先学会进门 <span class="mono">session</span>，再学会分房间 <span class="mono">window</span>，最后打开观察窗 <span class="mono">pane</span>。
+          不用硬背大全，照着这页就能开工。
         </p>
         <div class="cover-banner">
           <div class="cover-pane">
-            <span class="cover-label">Launch Cover</span>
-            <strong>一页讲清 tmux 为什么值得 Mac 团队推广</strong>
-            <p>适合团队培训、知识库、入职 onboarding，也适合直接发给刚开始用 Ghostty 和 tmux 的同事。</p>
+            <span class="cover-label">新手入口</span>
+            <strong>像玩星露谷一样，上手 tmux</strong>
+            <p>适合团队培训、入职发放和个人收藏。少一点术语，多一点“打开就能用”。</p>
           </div>
           <div class="cover-pane">
-            <span class="cover-label">Live URL</span>
+            <span class="cover-label">立即访问</span>
             <a class="cover-url" href="https://liyongzheng666.github.io/tmux-ghostty-guide-pages/" target="_blank" rel="noreferrer">liyongzheng666.github.io/tmux-ghostty-guide-pages/</a>
             <div class="cover-metrics">
               <div class="cover-metric">
@@ -1050,7 +1076,7 @@
           </div>
         </div>
         <div class="hero-actions">
-          <a class="button button-primary" href="#start">开始上手</a>
+          <a class="button button-primary" href="#start">开始冒险</a>
           <a class="button button-secondary" href="https://liyongzheng666.github.io/tmux-ghostty-guide-pages/" target="_blank" rel="noreferrer">在线访问</a>
           <a class="button button-secondary" href="#quick-commands">复制常用命令</a>
         </div>
@@ -1078,7 +1104,7 @@
         </div>
         <div class="cover-stage">
           <div class="cover-stage-header">
-            <span class="cover-badge"><span class="cover-badge-dot"></span> Product Landing</span>
+            <span class="cover-badge"><span class="cover-badge-dot"></span> 冒险入口</span>
             <div class="cover-platforms">
               <span>Mac</span>
               <span>Ghostty</span>
@@ -1086,27 +1112,27 @@
             </div>
           </div>
           <div class="cover-stage-body">
-            <div class="cover-title">更像产品页的 tmux 新手封面</div>
-            <div class="cover-description">第一屏直接告诉访问者：这是什么、适合谁、为什么要继续看，以及怎样马上开始。</div>
+            <div class="cover-title">先搭小屋，再开始写代码</div>
+            <div class="cover-description">这不是术语大全，而是一张新手地图：告诉你 tmux 是什么，谁适合用，第一步按什么。</div>
             <div class="cover-showcase">
               <div class="cover-stack-card">
-                <div class="cover-stack-line"><span>$</span><div>tmux new -As cpp</div></div>
-                <div class="cover-stack-line"><span>&gt;</span><div>Ghostty 负责终端体验</div></div>
-                <div class="cover-stack-line"><span>&gt;</span><div>tmux 负责会话持久化与工作区编排</div></div>
-                <div class="cover-stack-line"><span>&gt;</span><div>用一页内容完成团队传播和新人 onboarding</div></div>
+                <div class="cover-stack-line"><span>$</span><div>tmux new -As farm</div></div>
+                <div class="cover-stack-line"><span>&gt;</span><div>先进入自己的工作小屋</div></div>
+                <div class="cover-stack-line"><span>&gt;</span><div>再把任务分成几个房间</div></div>
+                <div class="cover-stack-line"><span>&gt;</span><div>需要时再打开观察窗</div></div>
               </div>
               <div class="cover-stack-list">
                 <div class="cover-stack-item">
-                  <strong>Audience</strong>
-                  <span>Mac 新手、Ghostty 用户、团队新人</span>
+                  <strong>适合谁</strong>
+                  <span>第一次用 tmux 的 Mac 用户，尤其适合 Ghostty 新手。</span>
                 </div>
                 <div class="cover-stack-item">
-                  <strong>Value</strong>
-                  <span>降低心智门槛，把 tmux 从“难”变成“可复制”</span>
+                  <strong>你会得到</strong>
+                  <span>不用背大全，也能马上理解 session、window、pane 三层结构。</span>
                 </div>
                 <div class="cover-stack-item">
-                  <strong>Action</strong>
-                  <span>打开页面、复制命令、直接开始使用</span>
+                  <strong>怎么开始</strong>
+                  <span>打开页面、复制命令、边用边学，5 分钟就能开工。</span>
                 </div>
               </div>
             </div>
