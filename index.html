@@ -202,6 +202,9 @@
     .hero-copy {
       padding: 34px;
       position: relative;
+      display: grid;
+      gap: 18px;
+      align-content: start;
     }
 
     .hero-copy::after {
@@ -264,7 +267,7 @@
     }
 
     .hero-copy p {
-      margin: 22px 0 0;
+      margin: 0;
       max-width: 60ch;
       color: var(--muted);
       font-size: 1.05rem;
@@ -272,7 +275,7 @@
     }
 
     .cover-banner {
-      margin-top: 26px;
+      margin-top: 0;
       padding: 18px;
       border-radius: var(--radius-lg);
       border: 3px solid rgba(116, 85, 44, 0.26);
@@ -391,7 +394,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 28px;
+      margin-top: 0;
     }
 
     .button {
@@ -431,6 +434,7 @@
       grid-template-rows: auto auto 1fr;
       gap: 20px;
       padding: 24px;
+      align-content: start;
     }
 
     .cover-stage {
@@ -524,9 +528,9 @@
     .cover-stage-body {
       position: relative;
       z-index: 1;
-      margin-top: 28px;
+      margin-top: 18px;
       display: grid;
-      gap: 18px;
+      gap: 14px;
     }
 
     .cover-title {
@@ -614,7 +618,7 @@
     .traffic {
       display: flex;
       gap: 8px;
-      margin-bottom: 18px;
+      margin-bottom: 0;
     }
 
     .traffic span {
@@ -637,7 +641,7 @@
       border: 3px solid rgba(116, 85, 44, 0.42);
       border-radius: var(--radius-lg);
       padding: 22px;
-      min-height: 100%;
+      min-height: auto;
       box-shadow: inset 0 0 0 2px rgba(255, 247, 220, 0.08);
     }
 
@@ -664,7 +668,7 @@
     }
 
     .mini-grid {
-      margin-top: 20px;
+      margin-top: 0;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
@@ -734,9 +738,158 @@
       z-index: 1;
     }
 
+    .sprite-parade {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .sprite-card {
+      display: grid;
+      gap: 10px;
+      align-items: start;
+      padding: 12px;
+      border-radius: var(--radius-md);
+      border: 2px solid rgba(116, 85, 44, 0.16);
+      background: rgba(255, 252, 241, 0.9);
+      box-shadow: 3px 3px 0 rgba(116, 85, 44, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sprite-card::after {
+      content: "";
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 8px;
+      height: 8px;
+      background: repeating-linear-gradient(90deg, rgba(127, 180, 75, 0.18) 0 8px, rgba(228, 162, 75, 0.16) 8px 16px);
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    .sprite-card-top {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .sprite-meta {
+      display: grid;
+      gap: 4px;
+    }
+
+    .sprite-meta strong {
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-3);
+    }
+
+    .sprite-meta span {
+      color: var(--muted);
+      font-size: 0.83rem;
+      line-height: 1.5;
+    }
+
+    .pixel-sprite {
+      width: 42px;
+      height: 52px;
+      flex: 0 0 auto;
+      shape-rendering: crispEdges;
+      image-rendering: pixelated;
+      filter: drop-shadow(2px 2px 0 rgba(116, 85, 44, 0.12));
+      --skin: #f5c58b;
+      --hair: #6e4b2e;
+      --shirt: #7fb44b;
+      --pants: #5f8fca;
+      --boots: #4a3926;
+      --outline: #3a2918;
+      --cheek: #d68b7e;
+      background: linear-gradient(180deg, rgba(255, 249, 232, 0.92), rgba(247, 235, 196, 0.92));
+      border: 2px solid rgba(116, 85, 44, 0.2);
+      border-radius: 6px;
+      padding: 4px;
+    }
+
+    .pixel-sprite .outline { fill: var(--outline); }
+    .pixel-sprite .skin { fill: var(--skin); }
+    .pixel-sprite .hair { fill: var(--hair); }
+    .pixel-sprite .shirt { fill: var(--shirt); }
+    .pixel-sprite .pants { fill: var(--pants); }
+    .pixel-sprite .boots { fill: var(--boots); }
+    .pixel-sprite .cheek { fill: var(--cheek); opacity: 0.9; }
+
+    .sprite-green { --hair: #6c5a42; --shirt: #7fb44b; --pants: #6e89c8; }
+    .sprite-blue { --hair: #8b5e3d; --shirt: #7ea4df; --pants: #8c6a3f; }
+    .sprite-orange { --hair: #a25431; --shirt: #e4a24b; --pants: #5578ba; }
+    .sprite-pink { --hair: #704d63; --shirt: #d788a4; --pants: #7d9342; }
+
+    .cover-scene {
+      display: grid;
+      gap: 10px;
+      padding: 12px;
+      border-radius: var(--radius-md);
+      border: 2px solid rgba(116, 85, 44, 0.16);
+      background: rgba(255, 251, 239, 0.9);
+    }
+
+    .scene-caption {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .scene-caption span {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 249, 232, 0.9);
+      border: 2px solid rgba(116, 85, 44, 0.14);
+      color: var(--muted);
+      font-size: 0.78rem;
+      box-shadow: 2px 2px 0 rgba(116, 85, 44, 0.08);
+    }
+
+    .npc-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 10px;
+    }
+
+    .npc-stack {
+      display: grid;
+      gap: 8px;
+      justify-items: center;
+      flex: 1 1 0;
+    }
+
+    .speech-bubble {
+      min-height: 40px;
+      padding: 8px 10px;
+      border-radius: var(--radius-sm);
+      border: 2px solid rgba(116, 85, 44, 0.18);
+      background: rgba(255, 249, 232, 0.94);
+      color: var(--text);
+      font-size: 0.78rem;
+      line-height: 1.35;
+      text-align: center;
+      box-shadow: 2px 2px 0 rgba(116, 85, 44, 0.08);
+    }
+
+    .scene-ground {
+      width: 100%;
+      height: 10px;
+      border-radius: 4px;
+      background: repeating-linear-gradient(90deg, rgba(127, 180, 75, 0.42) 0 10px, rgba(110, 162, 63, 0.42) 10px 20px);
+    }
+
     .section {
-      margin-top: 32px;
-      padding: 28px;
+      margin-top: 24px;
+      padding: 24px;
     }
 
     .section-header {
@@ -1030,6 +1183,7 @@
 
       .cover-banner,
       .cover-showcase,
+      .sprite-parade,
       .mini-grid,
       .key-grid {
         grid-template-columns: 1fr;
@@ -1129,6 +1283,100 @@
           <a class="button button-secondary" href="https://liyongzheng666.github.io/tmux-ghostty-guide-pages/" target="_blank" rel="noreferrer">在线访问</a>
           <a class="button button-secondary" href="#quick-commands">复制常用命令</a>
         </div>
+        <div class="sprite-parade">
+          <div class="sprite-card">
+            <div class="sprite-card-top">
+              <svg class="pixel-sprite sprite-green" viewBox="0 0 32 40" aria-hidden="true">
+                <rect class="hair" x="10" y="1" width="12" height="4"/>
+                <rect class="hair" x="8" y="5" width="16" height="4"/>
+                <rect class="skin" x="9" y="9" width="14" height="8"/>
+                <rect class="outline" x="12" y="11" width="2" height="2"/>
+                <rect class="outline" x="18" y="11" width="2" height="2"/>
+                <rect class="cheek" x="10" y="13" width="2" height="2"/>
+                <rect class="cheek" x="20" y="13" width="2" height="2"/>
+                <rect class="shirt" x="8" y="17" width="16" height="8"/>
+                <rect class="skin" x="6" y="18" width="2" height="7"/>
+                <rect class="skin" x="24" y="18" width="2" height="7"/>
+                <rect class="pants" x="10" y="25" width="4" height="8"/>
+                <rect class="pants" x="18" y="25" width="4" height="8"/>
+                <rect class="boots" x="10" y="33" width="4" height="2"/>
+                <rect class="boots" x="18" y="33" width="4" height="2"/>
+              </svg>
+              <div class="sprite-meta">
+                <strong>房主</strong>
+                <span>先建一个 session，工作小屋就有了。</span>
+              </div>
+            </div>
+          </div>
+          <div class="sprite-card">
+            <div class="sprite-card-top">
+              <svg class="pixel-sprite sprite-blue" viewBox="0 0 32 40" aria-hidden="true">
+                <rect class="hair" x="11" y="1" width="10" height="4"/>
+                <rect class="hair" x="8" y="5" width="16" height="3"/>
+                <rect class="skin" x="9" y="8" width="14" height="9"/>
+                <rect class="outline" x="12" y="11" width="2" height="2"/>
+                <rect class="outline" x="18" y="11" width="2" height="2"/>
+                <rect class="shirt" x="8" y="17" width="16" height="8"/>
+                <rect class="skin" x="6" y="18" width="2" height="7"/>
+                <rect class="skin" x="24" y="18" width="2" height="7"/>
+                <rect class="pants" x="10" y="25" width="4" height="8"/>
+                <rect class="pants" x="18" y="25" width="4" height="8"/>
+                <rect class="boots" x="10" y="33" width="4" height="2"/>
+                <rect class="boots" x="18" y="33" width="4" height="2"/>
+              </svg>
+              <div class="sprite-meta">
+                <strong>木匠</strong>
+                <span>每个 window 都是一个房间，专门放一种任务。</span>
+              </div>
+            </div>
+          </div>
+          <div class="sprite-card">
+            <div class="sprite-card-top">
+              <svg class="pixel-sprite sprite-orange" viewBox="0 0 32 40" aria-hidden="true">
+                <rect class="hair" x="10" y="1" width="12" height="4"/>
+                <rect class="hair" x="8" y="5" width="16" height="4"/>
+                <rect class="skin" x="9" y="9" width="14" height="8"/>
+                <rect class="outline" x="12" y="11" width="2" height="2"/>
+                <rect class="outline" x="18" y="11" width="2" height="2"/>
+                <rect class="shirt" x="8" y="17" width="16" height="8"/>
+                <rect class="skin" x="6" y="18" width="2" height="7"/>
+                <rect class="skin" x="24" y="18" width="2" height="7"/>
+                <rect class="pants" x="10" y="25" width="4" height="8"/>
+                <rect class="pants" x="18" y="25" width="4" height="8"/>
+                <rect class="boots" x="10" y="33" width="4" height="2"/>
+                <rect class="boots" x="18" y="33" width="4" height="2"/>
+              </svg>
+              <div class="sprite-meta">
+                <strong>巡逻员</strong>
+                <span>pane 像观察窗，适合同时盯日志、测试和编译。</span>
+              </div>
+            </div>
+          </div>
+          <div class="sprite-card">
+            <div class="sprite-card-top">
+              <svg class="pixel-sprite sprite-pink" viewBox="0 0 32 40" aria-hidden="true">
+                <rect class="hair" x="10" y="1" width="12" height="4"/>
+                <rect class="hair" x="8" y="5" width="16" height="4"/>
+                <rect class="skin" x="9" y="9" width="14" height="8"/>
+                <rect class="outline" x="12" y="11" width="2" height="2"/>
+                <rect class="outline" x="18" y="11" width="2" height="2"/>
+                <rect class="cheek" x="10" y="13" width="2" height="2"/>
+                <rect class="cheek" x="20" y="13" width="2" height="2"/>
+                <rect class="shirt" x="8" y="17" width="16" height="8"/>
+                <rect class="skin" x="6" y="18" width="2" height="7"/>
+                <rect class="skin" x="24" y="18" width="2" height="7"/>
+                <rect class="pants" x="10" y="25" width="4" height="8"/>
+                <rect class="pants" x="18" y="25" width="4" height="8"/>
+                <rect class="boots" x="10" y="33" width="4" height="2"/>
+                <rect class="boots" x="18" y="33" width="4" height="2"/>
+              </svg>
+              <div class="sprite-meta">
+                <strong>向导</strong>
+                <span>照着这页走，先用起来，再慢慢记快捷键。</span>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="mini-grid">
           <div class="mini-card">
             <div class="mini-card-header">
@@ -1193,6 +1441,67 @@
                   <span>打开页面、复制命令、边用边学，5 分钟就能开工。</span>
                 </div>
               </div>
+            </div>
+            <div class="cover-scene">
+              <div class="scene-caption">
+                <span>先搭小屋</span>
+                <span>再分房间</span>
+                <span>最后开观察窗</span>
+              </div>
+              <div class="npc-row">
+                <div class="npc-stack">
+                  <div class="speech-bubble">先建一个 session</div>
+                  <svg class="pixel-sprite sprite-green" viewBox="0 0 32 40" aria-hidden="true">
+                    <rect class="hair" x="10" y="1" width="12" height="4"/>
+                    <rect class="hair" x="8" y="5" width="16" height="4"/>
+                    <rect class="skin" x="9" y="9" width="14" height="8"/>
+                    <rect class="outline" x="12" y="11" width="2" height="2"/>
+                    <rect class="outline" x="18" y="11" width="2" height="2"/>
+                    <rect class="shirt" x="8" y="17" width="16" height="8"/>
+                    <rect class="skin" x="6" y="18" width="2" height="7"/>
+                    <rect class="skin" x="24" y="18" width="2" height="7"/>
+                    <rect class="pants" x="10" y="25" width="4" height="8"/>
+                    <rect class="pants" x="18" y="25" width="4" height="8"/>
+                    <rect class="boots" x="10" y="33" width="4" height="2"/>
+                    <rect class="boots" x="18" y="33" width="4" height="2"/>
+                  </svg>
+                </div>
+                <div class="npc-stack">
+                  <div class="speech-bubble">给任务分 window</div>
+                  <svg class="pixel-sprite sprite-orange" viewBox="0 0 32 40" aria-hidden="true">
+                    <rect class="hair" x="10" y="1" width="12" height="4"/>
+                    <rect class="hair" x="8" y="5" width="16" height="4"/>
+                    <rect class="skin" x="9" y="9" width="14" height="8"/>
+                    <rect class="outline" x="12" y="11" width="2" height="2"/>
+                    <rect class="outline" x="18" y="11" width="2" height="2"/>
+                    <rect class="shirt" x="8" y="17" width="16" height="8"/>
+                    <rect class="skin" x="6" y="18" width="2" height="7"/>
+                    <rect class="skin" x="24" y="18" width="2" height="7"/>
+                    <rect class="pants" x="10" y="25" width="4" height="8"/>
+                    <rect class="pants" x="18" y="25" width="4" height="8"/>
+                    <rect class="boots" x="10" y="33" width="4" height="2"/>
+                    <rect class="boots" x="18" y="33" width="4" height="2"/>
+                  </svg>
+                </div>
+                <div class="npc-stack">
+                  <div class="speech-bubble">需要时再开 pane</div>
+                  <svg class="pixel-sprite sprite-blue" viewBox="0 0 32 40" aria-hidden="true">
+                    <rect class="hair" x="11" y="1" width="10" height="4"/>
+                    <rect class="hair" x="8" y="5" width="16" height="3"/>
+                    <rect class="skin" x="9" y="8" width="14" height="9"/>
+                    <rect class="outline" x="12" y="11" width="2" height="2"/>
+                    <rect class="outline" x="18" y="11" width="2" height="2"/>
+                    <rect class="shirt" x="8" y="17" width="16" height="8"/>
+                    <rect class="skin" x="6" y="18" width="2" height="7"/>
+                    <rect class="skin" x="24" y="18" width="2" height="7"/>
+                    <rect class="pants" x="10" y="25" width="4" height="8"/>
+                    <rect class="pants" x="18" y="25" width="4" height="8"/>
+                    <rect class="boots" x="10" y="33" width="4" height="2"/>
+                    <rect class="boots" x="18" y="33" width="4" height="2"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="scene-ground"></div>
             </div>
           </div>
         </div>
