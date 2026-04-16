@@ -186,8 +186,8 @@
     .hero {
       margin-top: 34px;
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 28px;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 20px;
       align-items: stretch;
     }
 
@@ -200,39 +200,19 @@
     }
 
     .hero-copy {
-      padding: 34px;
+      padding: 28px;
       position: relative;
       display: grid;
-      gap: 18px;
+      gap: 14px;
       align-content: start;
     }
 
     .hero-copy::after {
-      content: "";
-      position: absolute;
-      inset: auto 24px 24px auto;
-      width: 88px;
-      height: 88px;
-      border-radius: 0;
-      background: linear-gradient(180deg, #ffe889, #f4b34e);
-      box-shadow:
-        14px 0 0 rgba(255, 255, 255, 0.55),
-        -12px 12px 0 rgba(255, 255, 255, 0.38),
-        0 14px 0 rgba(255, 255, 255, 0.42);
-      opacity: 0.34;
-      pointer-events: none;
+      display: none;
     }
 
     .hero-copy::before {
-      content: "";
-      position: absolute;
-      left: 34px;
-      right: 34px;
-      bottom: 24px;
-      height: 14px;
-      background: repeating-linear-gradient(90deg, rgba(127, 180, 75, 0.26) 0 16px, rgba(105, 164, 61, 0.26) 16px 32px);
-      border-radius: 4px;
-      pointer-events: none;
+      display: none;
     }
 
     .eyebrow {
@@ -260,86 +240,18 @@
     }
 
     h1 {
-      margin-top: 18px;
-      font-size: clamp(2.4rem, 5vw, 4.8rem);
-      line-height: 0.98;
-      max-width: 11ch;
+      margin-top: 6px;
+      font-size: clamp(2.2rem, 4.4vw, 4rem);
+      line-height: 1.02;
+      max-width: 10ch;
     }
 
     .hero-copy p {
       margin: 0;
-      max-width: 60ch;
+      max-width: 44ch;
       color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.8;
-    }
-
-    .cover-banner {
-      margin-top: 0;
-      padding: 16px;
-      border-radius: var(--radius-lg);
-      border: 3px solid rgba(116, 85, 44, 0.26);
-      background:
-        linear-gradient(180deg, rgba(255, 251, 240, 0.9), rgba(250, 236, 188, 0.92)),
-        linear-gradient(135deg, rgba(147, 218, 255, 0.2), rgba(255, 224, 144, 0.14));
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 14px;
-      align-items: stretch;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cover-banner::before {
-      content: "";
-      position: absolute;
-      inset: auto auto -50px -50px;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(127, 180, 75, 0.18), transparent 70%);
-      pointer-events: none;
-    }
-
-    .cover-pane {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      gap: 10px;
-      align-content: start;
-      padding: 14px;
-      border-radius: var(--radius-md);
-      border: 2px solid rgba(116, 85, 44, 0.14);
-      background: rgba(255, 251, 239, 0.88);
-    }
-
-    .cover-label {
-      display: inline-flex;
-      width: fit-content;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 10px;
-      border-radius: var(--radius-sm);
-      background: rgba(255, 246, 216, 0.9);
-      border: 2px solid rgba(116, 85, 44, 0.22);
-      color: #5f8fca;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.76rem;
-    }
-
-    .cover-banner strong {
-      font-family: var(--display);
-      font-size: 1.14rem;
-      line-height: 1.2;
-      max-width: 18ch;
-    }
-
-    .cover-banner p {
-      margin: 0;
-      font-size: 0.93rem;
-      color: var(--muted);
-      line-height: 1.75;
+      font-size: 1rem;
+      line-height: 1.72;
     }
 
     .cover-url {
@@ -365,37 +277,10 @@
       background: rgba(195, 234, 255, 0.98);
     }
 
-    .cover-metrics {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .cover-metric {
-      display: grid;
-      gap: 4px;
-      padding: 12px 14px;
-      border-radius: var(--radius-sm);
-      border: 2px solid rgba(116, 85, 44, 0.16);
-      background: rgba(255, 252, 241, 0.9);
-    }
-
-    .cover-metric strong {
-      font-family: var(--mono);
-      font-size: 1rem;
-      max-width: none;
-    }
-
-    .cover-metric span {
-      color: var(--muted);
-      font-size: 0.82rem;
-      line-height: 1.5;
-    }
-
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 10px;
       margin-top: 0;
     }
 
@@ -422,8 +307,8 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      min-height: 48px;
-      padding: 0 18px;
+      min-height: 42px;
+      padding: 0 16px;
       border-radius: var(--radius-sm);
       text-decoration: none;
       border: 2px solid transparent;
@@ -450,10 +335,8 @@
     }
 
     .hero-side {
-      display: grid;
-      grid-template-rows: auto auto 1fr;
-      gap: 20px;
-      padding: 24px;
+      display: block;
+      padding: 20px;
       align-content: start;
     }
 
@@ -463,60 +346,36 @@
       border-radius: var(--radius-lg);
       border: 3px solid rgba(116, 85, 44, 0.28);
       overflow: hidden;
-      padding: 20px;
-      background:
-        linear-gradient(180deg, #90d8ff 0%, #d0f0ff 48%, #a2d567 48%, #7db84f 100%);
+      padding: 22px;
+      background: linear-gradient(180deg, rgba(255, 251, 239, 0.96), rgba(250, 239, 210, 0.96));
     }
 
     .cover-stage::before,
     .cover-stage::after {
-      content: "";
-      position: absolute;
-      border-radius: 0;
-      border: 0;
-      pointer-events: none;
-    }
-
-    .cover-stage::before {
-      width: 72px;
-      height: 72px;
-      right: 28px;
-      top: 26px;
-      background: linear-gradient(180deg, #ffe77b, #f3ae48);
-      box-shadow:
-        -18px 10px 0 rgba(255, 255, 255, 0.78),
-        -34px 24px 0 rgba(255, 255, 255, 0.62),
-        16px 22px 0 rgba(255, 255, 255, 0.7);
-    }
-
-    .cover-stage::after {
-      left: 0;
-      right: 0;
-      bottom: 18px;
-      height: 12px;
-      background: repeating-linear-gradient(90deg, rgba(92, 150, 48, 0.62) 0 14px, rgba(112, 177, 58, 0.62) 14px 28px);
+      display: none;
     }
 
     .cover-stage-header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: 12px;
       position: relative;
       z-index: 1;
+      margin-bottom: 8px;
     }
 
     .cover-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 12px;
+      padding: 7px 10px;
       border-radius: var(--radius-sm);
       border: 2px solid rgba(116, 85, 44, 0.2);
       background: rgba(255, 252, 241, 0.88);
       color: #5f8fca;
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
+      font-size: 0.74rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
     }
 
@@ -537,99 +396,37 @@
     }
 
     .cover-platforms span {
-      padding: 7px 10px;
+      padding: 6px 10px;
       border-radius: var(--radius-sm);
       border: 2px solid rgba(116, 85, 44, 0.16);
       background: rgba(255, 252, 241, 0.88);
       color: var(--muted);
-      font-size: 0.82rem;
+      font-size: 0.78rem;
     }
 
     .cover-stage-body {
       position: relative;
       z-index: 1;
-      margin-top: 14px;
+      margin-top: 0;
       display: grid;
-      gap: 16px;
+      gap: 12px;
     }
 
     .cover-title {
       font-family: var(--display);
-      font-size: clamp(1.75rem, 4vw, 2.6rem);
-      line-height: 0.96;
-      max-width: 11ch;
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      line-height: 1.05;
+      max-width: 14ch;
     }
 
     .cover-description {
-      max-width: 36ch;
+      max-width: 42ch;
       color: var(--muted);
-      line-height: 1.68;
+      line-height: 1.64;
     }
-
-    .traffic {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 0;
-    }
-
-    .traffic span {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      display: block;
-    }
-
-    .traffic span:nth-child(1) { background: #ff5f57; }
-    .traffic span:nth-child(2) { background: #febc2e; }
-    .traffic span:nth-child(3) { background: #28c840; }
 
     .terminal {
-      display: grid;
-      gap: 16px;
-      background:
-        linear-gradient(180deg, rgba(66, 47, 28, 0.96), rgba(49, 35, 20, 0.96)),
-        linear-gradient(135deg, rgba(228, 162, 75, 0.08), rgba(127, 180, 75, 0.08));
-      border: 3px solid rgba(116, 85, 44, 0.42);
-      border-radius: var(--radius-lg);
-      padding: 22px;
-      min-height: auto;
-      box-shadow: inset 0 0 0 2px rgba(255, 247, 220, 0.08);
-    }
-
-    .terminal-title {
-      display: inline-flex;
-      width: fit-content;
-      align-items: center;
-      padding: 6px 10px;
-      border-radius: var(--radius-sm);
-      background: rgba(255, 244, 206, 0.08);
-      border: 2px solid rgba(255, 243, 205, 0.12);
-      color: #f3d78f;
-      font-size: 0.76rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .terminal-line {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 12px;
-      align-items: start;
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-
-    .prompt {
-      color: var(--accent-2);
-      font-weight: 700;
-    }
-
-    .answer {
-      color: var(--text);
-    }
-
-    .soft {
-      color: var(--muted);
+      display: none;
     }
 
     .mini-grid {
@@ -638,158 +435,6 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
-
-    .hero-toolbelt {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .mini-card {
-      padding: 16px;
-      border-radius: var(--radius-md);
-      border: 2px solid rgba(116, 85, 44, 0.16);
-      background: rgba(255, 252, 241, 0.9);
-      box-shadow: 3px 3px 0 rgba(116, 85, 44, 0.12);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .mini-card::after {
-      content: "";
-      position: absolute;
-      right: 12px;
-      bottom: 12px;
-      width: 38px;
-      height: 10px;
-      border-radius: 4px;
-      background: repeating-linear-gradient(90deg, rgba(127, 180, 75, 0.18) 0 8px, rgba(228, 162, 75, 0.18) 8px 16px);
-      opacity: 0.85;
-      pointer-events: none;
-    }
-
-    .mini-card-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 10px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .mini-icon {
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      border-radius: 6px;
-      border: 2px solid rgba(116, 85, 44, 0.24);
-      background: linear-gradient(180deg, #fff8df, #eed89a);
-      color: #3c2a18;
-      font-family: var(--mono);
-      font-size: 0.92rem;
-      box-shadow: 2px 2px 0 rgba(116, 85, 44, 0.12);
-    }
-
-    .mini-card strong {
-      display: block;
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent-3);
-      margin-bottom: 0;
-    }
-
-    .mini-card span {
-      display: block;
-      color: var(--muted);
-      line-height: 1.6;
-      font-size: 0.9rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .sprite-strip {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .sprite-pill {
-      display: grid;
-      justify-items: center;
-      gap: 8px;
-      padding: 12px 10px;
-      border-radius: var(--radius-md);
-      border: 2px solid rgba(116, 85, 44, 0.16);
-      background: rgba(255, 252, 241, 0.9);
-      box-shadow: 3px 3px 0 rgba(116, 85, 44, 0.12);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .sprite-pill::after {
-      content: "";
-      position: absolute;
-      left: 10px;
-      right: 10px;
-      bottom: 8px;
-      height: 8px;
-      background: repeating-linear-gradient(90deg, rgba(127, 180, 75, 0.18) 0 8px, rgba(228, 162, 75, 0.16) 8px 16px);
-      border-radius: 4px;
-      pointer-events: none;
-    }
-
-    .sprite-pill strong {
-      font-size: 0.82rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent-3);
-      position: relative;
-      z-index: 1;
-    }
-
-    .sprite-pill span {
-      color: var(--muted);
-      font-size: 0.83rem;
-      line-height: 1.5;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .pixel-sprite {
-      width: 42px;
-      height: 52px;
-      flex: 0 0 auto;
-      shape-rendering: crispEdges;
-      image-rendering: pixelated;
-      filter: drop-shadow(2px 2px 0 rgba(116, 85, 44, 0.12));
-      --skin: #f5c58b;
-      --hair: #6e4b2e;
-      --shirt: #7fb44b;
-      --pants: #5f8fca;
-      --boots: #4a3926;
-      --outline: #3a2918;
-      --cheek: #d68b7e;
-      background: linear-gradient(180deg, rgba(255, 249, 232, 0.92), rgba(247, 235, 196, 0.92));
-      border: 2px solid rgba(116, 85, 44, 0.2);
-      border-radius: 6px;
-      padding: 4px;
-    }
-
-    .pixel-sprite .outline { fill: var(--outline); }
-    .pixel-sprite .skin { fill: var(--skin); }
-    .pixel-sprite .hair { fill: var(--hair); }
-    .pixel-sprite .shirt { fill: var(--shirt); }
-    .pixel-sprite .pants { fill: var(--pants); }
-    .pixel-sprite .boots { fill: var(--boots); }
-    .pixel-sprite .cheek { fill: var(--cheek); opacity: 0.9; }
-
-    .sprite-green { --hair: #6c5a42; --shirt: #7fb44b; --pants: #6e89c8; }
-    .sprite-blue { --hair: #8b5e3d; --shirt: #7ea4df; --pants: #8c6a3f; }
-    .sprite-orange { --hair: #a25431; --shirt: #e4a24b; --pants: #5578ba; }
-    .sprite-pink { --hair: #704d63; --shirt: #d788a4; --pants: #7d9342; }
 
     .journey-command {
       display: inline-flex;
@@ -813,7 +458,7 @@
 
     .journey-card {
       display: grid;
-      gap: 10px;
+      gap: 8px;
       align-content: start;
       padding: 14px;
       border-radius: var(--radius-md);
@@ -823,9 +468,7 @@
     }
 
     .journey-card-top {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      display: block;
     }
 
     .journey-index {
@@ -848,7 +491,7 @@
 
     .journey-copy strong {
       display: block;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--accent-3);
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -857,13 +500,8 @@
     .journey-copy span {
       display: block;
       font-size: 0.84rem;
-      line-height: 1.55;
+      line-height: 1.5;
       color: var(--muted);
-    }
-
-    .journey-card .pixel-sprite {
-      width: 38px;
-      height: 48px;
     }
 
     .section {
@@ -1162,9 +800,7 @@
 
       .cover-banner,
       .cover-metrics,
-      .hero-toolbelt,
       .journey-grid,
-      .sprite-strip,
       .key-grid {
         grid-template-columns: 1fr;
       }
@@ -1188,7 +824,7 @@
       .hero-copy,
       .hero-side,
       .section {
-        padding: 22px;
+        padding: 20px;
       }
 
       .shortcut {
@@ -1236,150 +872,30 @@
         <div class="cover-banner">
           <div class="cover-pane">
             <span class="cover-label">新手入口</span>
-            <strong>像玩星露谷一样，上手 tmux</strong>
-            <p>给第一次用 tmux 的 Mac 用户。先理解三层结构，再照着命令直接开工。</p>
+            <strong>一个面向 Mac + Ghostty 用户的 tmux 新手页</strong>
+            <p>用最短路径帮你理解 <span class="mono">session</span>、<span class="mono">window</span>、<span class="mono">pane</span>，然后开始使用。</p>
             <div class="cover-chips">
               <span>Mac 新手</span>
               <span>Ghostty 用户</span>
-              <span>5 分钟开工</span>
+              <span>tmux 入门</span>
             </div>
           </div>
           <div class="cover-pane">
             <span class="cover-label">立即访问</span>
             <a class="cover-url" href="https://liyongzheng666.github.io/tmux-ghostty-guide-pages/" target="_blank" rel="noreferrer">liyongzheng666.github.io/tmux-ghostty-guide-pages/</a>
-            <div class="cover-metrics">
-              <div class="cover-metric">
-                <strong>Session</strong>
-                <span>一个项目一个工作区</span>
-              </div>
-              <div class="cover-metric">
-                <strong>Window</strong>
-                <span>一个任务一个页面</span>
-              </div>
-              <div class="cover-metric">
-                <strong>Pane</strong>
-                <span>一个视角一个分屏</span>
-              </div>
-            </div>
+            <p>适合直接转发给刚开始接触 tmux 的同事或朋友。</p>
           </div>
         </div>
         <div class="hero-actions">
-          <a class="button button-primary" href="#start">开始冒险</a>
-          <a class="button button-secondary" href="https://liyongzheng666.github.io/tmux-ghostty-guide-pages/" target="_blank" rel="noreferrer">在线访问</a>
-          <a class="button button-secondary" href="#quick-commands">复制常用命令</a>
-        </div>
-        <div class="hero-toolbelt">
-          <div class="mini-card">
-            <div class="mini-card-header">
-              <span class="mini-icon">S</span>
-              <strong>Session</strong>
-            </div>
-            <span>一个项目一个工作区，支持 detach / attach，适合长期开发。</span>
-          </div>
-          <div class="mini-card">
-            <div class="mini-card-header">
-              <span class="mini-icon">W</span>
-              <strong>Window</strong>
-            </div>
-            <span>一个任务一个页面，例如 <span class="mono">edit</span>、<span class="mono">build</span>、<span class="mono">test</span>。</span>
-          </div>
-          <div class="mini-card">
-            <div class="mini-card-header">
-              <span class="mini-icon">P</span>
-              <strong>Pane</strong>
-            </div>
-            <span>一个窗口里的分屏区域，适合同时观察编译、测试、日志和调试器。</span>
-          </div>
-        </div>
-        <div class="sprite-strip">
-          <div class="sprite-pill">
-            <svg class="pixel-sprite sprite-green" viewBox="0 0 32 40" aria-hidden="true">
-              <rect class="hair" x="10" y="1" width="12" height="4"/>
-              <rect class="hair" x="8" y="5" width="16" height="4"/>
-              <rect class="skin" x="9" y="9" width="14" height="8"/>
-              <rect class="outline" x="12" y="11" width="2" height="2"/>
-              <rect class="outline" x="18" y="11" width="2" height="2"/>
-              <rect class="cheek" x="10" y="13" width="2" height="2"/>
-              <rect class="cheek" x="20" y="13" width="2" height="2"/>
-              <rect class="shirt" x="8" y="17" width="16" height="8"/>
-              <rect class="skin" x="6" y="18" width="2" height="7"/>
-              <rect class="skin" x="24" y="18" width="2" height="7"/>
-              <rect class="pants" x="10" y="25" width="4" height="8"/>
-              <rect class="pants" x="18" y="25" width="4" height="8"/>
-              <rect class="boots" x="10" y="33" width="4" height="2"/>
-              <rect class="boots" x="18" y="33" width="4" height="2"/>
-            </svg>
-            <strong>房主</strong>
-            <span>先把项目放进 session</span>
-          </div>
-          <div class="sprite-pill">
-            <svg class="pixel-sprite sprite-blue" viewBox="0 0 32 40" aria-hidden="true">
-              <rect class="hair" x="11" y="1" width="10" height="4"/>
-              <rect class="hair" x="8" y="5" width="16" height="3"/>
-              <rect class="skin" x="9" y="8" width="14" height="9"/>
-              <rect class="outline" x="12" y="11" width="2" height="2"/>
-              <rect class="outline" x="18" y="11" width="2" height="2"/>
-              <rect class="shirt" x="8" y="17" width="16" height="8"/>
-              <rect class="skin" x="6" y="18" width="2" height="7"/>
-              <rect class="skin" x="24" y="18" width="2" height="7"/>
-              <rect class="pants" x="10" y="25" width="4" height="8"/>
-              <rect class="pants" x="18" y="25" width="4" height="8"/>
-              <rect class="boots" x="10" y="33" width="4" height="2"/>
-              <rect class="boots" x="18" y="33" width="4" height="2"/>
-            </svg>
-            <strong>木匠</strong>
-            <span>每个 window 放一种任务</span>
-          </div>
-          <div class="sprite-pill">
-            <svg class="pixel-sprite sprite-orange" viewBox="0 0 32 40" aria-hidden="true">
-              <rect class="hair" x="10" y="1" width="12" height="4"/>
-              <rect class="hair" x="8" y="5" width="16" height="4"/>
-              <rect class="skin" x="9" y="9" width="14" height="8"/>
-              <rect class="outline" x="12" y="11" width="2" height="2"/>
-              <rect class="outline" x="18" y="11" width="2" height="2"/>
-              <rect class="shirt" x="8" y="17" width="16" height="8"/>
-              <rect class="skin" x="6" y="18" width="2" height="7"/>
-              <rect class="skin" x="24" y="18" width="2" height="7"/>
-              <rect class="pants" x="10" y="25" width="4" height="8"/>
-              <rect class="pants" x="18" y="25" width="4" height="8"/>
-              <rect class="boots" x="10" y="33" width="4" height="2"/>
-              <rect class="boots" x="18" y="33" width="4" height="2"/>
-            </svg>
-            <strong>巡逻员</strong>
-            <span>需要时再开 pane</span>
-          </div>
-          <div class="sprite-pill">
-            <svg class="pixel-sprite sprite-pink" viewBox="0 0 32 40" aria-hidden="true">
-              <rect class="hair" x="10" y="1" width="12" height="4"/>
-              <rect class="hair" x="8" y="5" width="16" height="4"/>
-              <rect class="skin" x="9" y="9" width="14" height="8"/>
-              <rect class="outline" x="12" y="11" width="2" height="2"/>
-              <rect class="outline" x="18" y="11" width="2" height="2"/>
-              <rect class="cheek" x="10" y="13" width="2" height="2"/>
-              <rect class="cheek" x="20" y="13" width="2" height="2"/>
-              <rect class="shirt" x="8" y="17" width="16" height="8"/>
-              <rect class="skin" x="6" y="18" width="2" height="7"/>
-              <rect class="skin" x="24" y="18" width="2" height="7"/>
-              <rect class="pants" x="10" y="25" width="4" height="8"/>
-              <rect class="pants" x="18" y="25" width="4" height="8"/>
-              <rect class="boots" x="10" y="33" width="4" height="2"/>
-              <rect class="boots" x="18" y="33" width="4" height="2"/>
-            </svg>
-            <strong>向导</strong>
-            <span>照着这页边用边学</span>
-          </div>
+          <a class="button button-primary" href="#start">开始阅读</a>
+          <a class="cover-url" href="https://liyongzheng666.github.io/tmux-ghostty-guide-pages/" target="_blank" rel="noreferrer">在线访问</a>
         </div>
       </article>
 
       <aside class="panel hero-side fade-in">
-        <div class="traffic">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
         <div class="cover-stage">
           <div class="cover-stage-header">
-            <span class="cover-badge"><span class="cover-badge-dot"></span> 冒险入口</span>
+            <span class="cover-badge"><span class="cover-badge-dot"></span> 如何开始</span>
             <div class="cover-platforms">
               <span>Mac</span>
               <span>Ghostty</span>
@@ -1387,27 +903,13 @@
             </div>
           </div>
           <div class="cover-stage-body">
-            <div class="cover-title">先搭小屋，再开始写代码</div>
-            <div class="cover-description">把 tmux 当成项目现场管理器，而不是单纯的分屏工具。先搭好结构，后面的写代码和调试都会顺很多。</div>
+            <div class="cover-title">三步就够了</div>
+            <div class="cover-description">先把项目放进一个长期工作区，再按任务分页面，最后只在需要时分屏。</div>
             <div class="journey-command">tmux new -As farm</div>
             <div class="journey-grid">
               <div class="journey-card">
                 <div class="journey-card-top">
                   <span class="journey-index">01</span>
-                  <svg class="pixel-sprite sprite-green" viewBox="0 0 32 40" aria-hidden="true">
-                    <rect class="hair" x="10" y="1" width="12" height="4"/>
-                    <rect class="hair" x="8" y="5" width="16" height="4"/>
-                    <rect class="skin" x="9" y="9" width="14" height="8"/>
-                    <rect class="outline" x="12" y="11" width="2" height="2"/>
-                    <rect class="outline" x="18" y="11" width="2" height="2"/>
-                    <rect class="shirt" x="8" y="17" width="16" height="8"/>
-                    <rect class="skin" x="6" y="18" width="2" height="7"/>
-                    <rect class="skin" x="24" y="18" width="2" height="7"/>
-                    <rect class="pants" x="10" y="25" width="4" height="8"/>
-                    <rect class="pants" x="18" y="25" width="4" height="8"/>
-                    <rect class="boots" x="10" y="33" width="4" height="2"/>
-                    <rect class="boots" x="18" y="33" width="4" height="2"/>
-                  </svg>
                 </div>
                 <div class="journey-copy">
                   <strong>建一个 Session</strong>
@@ -1417,20 +919,6 @@
               <div class="journey-card">
                 <div class="journey-card-top">
                   <span class="journey-index">02</span>
-                  <svg class="pixel-sprite sprite-orange" viewBox="0 0 32 40" aria-hidden="true">
-                    <rect class="hair" x="10" y="1" width="12" height="4"/>
-                    <rect class="hair" x="8" y="5" width="16" height="4"/>
-                    <rect class="skin" x="9" y="9" width="14" height="8"/>
-                    <rect class="outline" x="12" y="11" width="2" height="2"/>
-                    <rect class="outline" x="18" y="11" width="2" height="2"/>
-                    <rect class="shirt" x="8" y="17" width="16" height="8"/>
-                    <rect class="skin" x="6" y="18" width="2" height="7"/>
-                    <rect class="skin" x="24" y="18" width="2" height="7"/>
-                    <rect class="pants" x="10" y="25" width="4" height="8"/>
-                    <rect class="pants" x="18" y="25" width="4" height="8"/>
-                    <rect class="boots" x="10" y="33" width="4" height="2"/>
-                    <rect class="boots" x="18" y="33" width="4" height="2"/>
-                  </svg>
                 </div>
                 <div class="journey-copy">
                   <strong>分成 Window</strong>
@@ -1440,20 +928,6 @@
               <div class="journey-card">
                 <div class="journey-card-top">
                   <span class="journey-index">03</span>
-                  <svg class="pixel-sprite sprite-blue" viewBox="0 0 32 40" aria-hidden="true">
-                    <rect class="hair" x="11" y="1" width="10" height="4"/>
-                    <rect class="hair" x="8" y="5" width="16" height="3"/>
-                    <rect class="skin" x="9" y="8" width="14" height="9"/>
-                    <rect class="outline" x="12" y="11" width="2" height="2"/>
-                    <rect class="outline" x="18" y="11" width="2" height="2"/>
-                    <rect class="shirt" x="8" y="17" width="16" height="8"/>
-                    <rect class="skin" x="6" y="18" width="2" height="7"/>
-                    <rect class="skin" x="24" y="18" width="2" height="7"/>
-                    <rect class="pants" x="10" y="25" width="4" height="8"/>
-                    <rect class="pants" x="18" y="25" width="4" height="8"/>
-                    <rect class="boots" x="10" y="33" width="4" height="2"/>
-                    <rect class="boots" x="18" y="33" width="4" height="2"/>
-                  </svg>
                 </div>
                 <div class="journey-copy">
                   <strong>需要时开 Pane</strong>
@@ -1461,33 +935,6 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="terminal">
-          <span class="terminal-title">快速提示</span>
-          <div class="terminal-line">
-            <span class="prompt">$</span>
-            <div class="answer">tmux new -As cpp</div>
-          </div>
-          <div class="terminal-line">
-            <span class="prompt">></span>
-            <div class="answer">Ghostty 负责窗口、渲染、标签页</div>
-          </div>
-          <div class="terminal-line">
-            <span class="prompt">></span>
-            <div class="answer">tmux 负责 session、window、pane、现场恢复</div>
-          </div>
-          <div class="terminal-line">
-            <span class="prompt">></span>
-            <div class="answer">建议主前缀先统一用 <span class="mono">Ctrl-b</span></div>
-          </div>
-          <div class="terminal-line">
-            <span class="prompt">></span>
-            <div class="answer">本页采用推荐键位：<span class="mono">-</span> 上下分屏，<span class="mono">|</span> 左右分屏</div>
-          </div>
-          <div class="terminal-line">
-            <span class="prompt">></span>
-            <div class="answer soft">编号从 1 开始，鼠标和 vi 复制模式已开启</div>
           </div>
         </div>
       </aside>
