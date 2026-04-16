@@ -9,6 +9,7 @@
   <meta property="og:description" content="一个适合团队分享的 Mac + Ghostty 定制版 tmux 入门页面。">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_CN">
+  <meta property="og:url" content="https://liyongzheng666.github.io/tmux-ghostty-guide-pages/">
   <meta name="theme-color" content="#06131a">
   <style>
     :root {
@@ -242,6 +243,122 @@
       line-height: 1.8;
     }
 
+    .cover-banner {
+      margin-top: 26px;
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+        linear-gradient(135deg, rgba(130, 230, 255, 0.1), rgba(255, 184, 107, 0.08));
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: stretch;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover-banner::before {
+      content: "";
+      position: absolute;
+      inset: auto auto -50px -50px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(116, 208, 191, 0.16), transparent 70%);
+      pointer-events: none;
+    }
+
+    .cover-pane {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .cover-label {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--accent-3);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.76rem;
+    }
+
+    .cover-banner strong {
+      font-family: var(--display);
+      font-size: 1.18rem;
+      line-height: 1.15;
+      max-width: 16ch;
+    }
+
+    .cover-banner p {
+      margin: 0;
+      font-size: 0.93rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .cover-url {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(116, 208, 191, 0.22);
+      background: rgba(3, 14, 18, 0.54);
+      color: var(--text);
+      text-decoration: none;
+      font-family: var(--mono);
+      font-size: 0.86rem;
+      word-break: break-all;
+      transition: 180ms ease;
+    }
+
+    .cover-url:hover {
+      transform: translateY(-1px);
+      border-color: var(--line-strong);
+      background: rgba(116, 208, 191, 0.08);
+    }
+
+    .cover-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .cover-metric {
+      display: grid;
+      gap: 4px;
+      min-width: 110px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .cover-metric strong {
+      font-family: var(--mono);
+      font-size: 1rem;
+      max-width: none;
+    }
+
+    .cover-metric span {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -281,9 +398,184 @@
 
     .hero-side {
       display: grid;
-      grid-template-rows: auto 1fr;
+      grid-template-rows: auto auto 1fr;
       gap: 20px;
       padding: 24px;
+    }
+
+    .cover-stage {
+      position: relative;
+      min-height: 270px;
+      border-radius: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+      padding: 22px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 184, 107, 0.22), transparent 30%),
+        radial-gradient(circle at left center, rgba(130, 230, 255, 0.18), transparent 28%),
+        linear-gradient(145deg, rgba(7, 22, 29, 0.96), rgba(3, 11, 15, 0.96));
+    }
+
+    .cover-stage::before,
+    .cover-stage::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      pointer-events: none;
+    }
+
+    .cover-stage::before {
+      width: 360px;
+      height: 360px;
+      right: -160px;
+      top: -120px;
+    }
+
+    .cover-stage::after {
+      width: 260px;
+      height: 260px;
+      left: -120px;
+      bottom: -140px;
+    }
+
+    .cover-stage-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--accent-3);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .cover-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 0 6px rgba(116, 208, 191, 0.12);
+    }
+
+    .cover-platforms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover-platforms span {
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .cover-stage-body {
+      position: relative;
+      z-index: 1;
+      margin-top: 28px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .cover-title {
+      font-family: var(--display);
+      font-size: clamp(1.75rem, 4vw, 2.6rem);
+      line-height: 0.96;
+      max-width: 11ch;
+    }
+
+    .cover-description {
+      max-width: 30ch;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .cover-showcase {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .cover-stack-card,
+    .cover-stack-list {
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+
+    .cover-stack-card {
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .cover-stack-line {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: center;
+      color: var(--text);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .cover-stack-line span:first-child {
+      color: var(--accent-2);
+      font-family: var(--mono);
+      font-size: 0.82rem;
+    }
+
+    .cover-stack-list {
+      display: grid;
+      padding: 12px;
+      gap: 10px;
+    }
+
+    .cover-stack-item {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(0, 0, 0, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .cover-stack-item strong {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--accent-3);
+      margin-bottom: 6px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: var(--mono);
+      max-width: none;
+    }
+
+    .cover-stack-item span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.84rem;
     }
 
     .traffic {
@@ -661,6 +953,8 @@
         grid-template-columns: 1fr;
       }
 
+      .cover-banner,
+      .cover-showcase,
       .mini-grid,
       .key-grid {
         grid-template-columns: 1fr;
@@ -695,6 +989,11 @@
       h1 {
         max-width: none;
       }
+
+      .cover-stage-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -725,8 +1024,34 @@
           重点只讲三件事：如何启动一个 <span class="mono">session</span>、如何管理 <span class="mono">window</span>、以及如何熟练地操作 <span class="mono">pane</span>。
           同时补上 Ghostty 用户最在意的分工建议，让外层终端和内层工作区各司其职。
         </p>
+        <div class="cover-banner">
+          <div class="cover-pane">
+            <span class="cover-label">Launch Cover</span>
+            <strong>一页讲清 tmux 为什么值得 Mac 团队推广</strong>
+            <p>适合团队培训、知识库、入职 onboarding，也适合直接发给刚开始用 Ghostty 和 tmux 的同事。</p>
+          </div>
+          <div class="cover-pane">
+            <span class="cover-label">Live URL</span>
+            <a class="cover-url" href="https://liyongzheng666.github.io/tmux-ghostty-guide-pages/" target="_blank" rel="noreferrer">liyongzheng666.github.io/tmux-ghostty-guide-pages/</a>
+            <div class="cover-metrics">
+              <div class="cover-metric">
+                <strong>Session</strong>
+                <span>一个项目一个工作区</span>
+              </div>
+              <div class="cover-metric">
+                <strong>Window</strong>
+                <span>一个任务一个页面</span>
+              </div>
+              <div class="cover-metric">
+                <strong>Pane</strong>
+                <span>一个视角一个分屏</span>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="hero-actions">
           <a class="button button-primary" href="#start">开始上手</a>
+          <a class="button button-secondary" href="https://liyongzheng666.github.io/tmux-ghostty-guide-pages/" target="_blank" rel="noreferrer">在线访问</a>
           <a class="button button-secondary" href="#quick-commands">复制常用命令</a>
         </div>
         <div class="mini-grid">
@@ -750,6 +1075,42 @@
           <span></span>
           <span></span>
           <span></span>
+        </div>
+        <div class="cover-stage">
+          <div class="cover-stage-header">
+            <span class="cover-badge"><span class="cover-badge-dot"></span> Product Landing</span>
+            <div class="cover-platforms">
+              <span>Mac</span>
+              <span>Ghostty</span>
+              <span>tmux</span>
+            </div>
+          </div>
+          <div class="cover-stage-body">
+            <div class="cover-title">更像产品页的 tmux 新手封面</div>
+            <div class="cover-description">第一屏直接告诉访问者：这是什么、适合谁、为什么要继续看，以及怎样马上开始。</div>
+            <div class="cover-showcase">
+              <div class="cover-stack-card">
+                <div class="cover-stack-line"><span>$</span><div>tmux new -As cpp</div></div>
+                <div class="cover-stack-line"><span>&gt;</span><div>Ghostty 负责终端体验</div></div>
+                <div class="cover-stack-line"><span>&gt;</span><div>tmux 负责会话持久化与工作区编排</div></div>
+                <div class="cover-stack-line"><span>&gt;</span><div>用一页内容完成团队传播和新人 onboarding</div></div>
+              </div>
+              <div class="cover-stack-list">
+                <div class="cover-stack-item">
+                  <strong>Audience</strong>
+                  <span>Mac 新手、Ghostty 用户、团队新人</span>
+                </div>
+                <div class="cover-stack-item">
+                  <strong>Value</strong>
+                  <span>降低心智门槛，把 tmux 从“难”变成“可复制”</span>
+                </div>
+                <div class="cover-stack-item">
+                  <strong>Action</strong>
+                  <span>打开页面、复制命令、直接开始使用</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="terminal">
           <div class="terminal-line">
