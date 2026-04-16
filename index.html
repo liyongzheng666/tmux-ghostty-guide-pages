@@ -284,24 +284,6 @@
       margin-top: 0;
     }
 
-    .cover-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 2px;
-    }
-
-    .cover-chips span {
-      padding: 7px 10px;
-      border-radius: var(--radius-sm);
-      border: 2px solid rgba(116, 85, 44, 0.14);
-      background: rgba(255, 249, 232, 0.92);
-      color: var(--muted);
-      font-size: 0.8rem;
-      line-height: 1;
-      box-shadow: 2px 2px 0 rgba(116, 85, 44, 0.08);
-    }
-
     .button {
       display: inline-flex;
       align-items: center;
@@ -321,13 +303,6 @@
       background: linear-gradient(180deg, #98d25f, var(--accent));
       border-color: rgba(84, 123, 46, 0.55);
       box-shadow: 0 4px 0 rgba(84, 123, 46, 0.34);
-    }
-
-    .button-secondary {
-      color: var(--text);
-      border-color: rgba(116, 85, 44, 0.28);
-      background: rgba(255, 249, 232, 0.96);
-      box-shadow: 0 4px 0 rgba(116, 85, 44, 0.16);
     }
 
     .button:hover {
@@ -355,55 +330,6 @@
       display: none;
     }
 
-    .cover-stage-header {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 12px;
-      position: relative;
-      z-index: 1;
-      margin-bottom: 8px;
-    }
-
-    .cover-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 10px;
-      border-radius: var(--radius-sm);
-      border: 2px solid rgba(116, 85, 44, 0.2);
-      background: rgba(255, 252, 241, 0.88);
-      color: #5f8fca;
-      font-size: 0.74rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .cover-badge-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 2px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 0 0 4px rgba(127, 180, 75, 0.12);
-    }
-
-    .cover-platforms {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .cover-platforms span {
-      padding: 6px 10px;
-      border-radius: var(--radius-sm);
-      border: 2px solid rgba(116, 85, 44, 0.16);
-      background: rgba(255, 252, 241, 0.88);
-      color: var(--muted);
-      font-size: 0.78rem;
-    }
-
     .cover-stage-body {
       position: relative;
       z-index: 1;
@@ -417,12 +343,6 @@
       font-size: clamp(1.6rem, 3vw, 2.1rem);
       line-height: 1.05;
       max-width: 14ch;
-    }
-
-    .cover-description {
-      max-width: 42ch;
-      color: var(--muted);
-      line-height: 1.64;
     }
 
     .terminal {
@@ -834,11 +754,6 @@
       h1 {
         max-width: none;
       }
-
-      .cover-stage-header {
-        align-items: flex-start;
-        flex-direction: column;
-      }
     }
   </style>
 </head>
@@ -862,35 +777,18 @@
 
     <section class="hero">
       <article class="panel hero-copy fade-in">
-        <span class="eyebrow">Mac + Ghostty 像素冒险版</span>
         <h1>把终端整理成一座像素小屋</h1>
         <p>tmux 入门页。先懂 <span class="mono">session</span> / <span class="mono">window</span> / <span class="mono">pane</span>。</p>
-        <div class="cover-banner">
-          <div class="cover-pane">
-            <span class="cover-label">这是什么</span>
-            <strong>给 Mac + Ghostty 用户的 tmux 新手页</strong>
-            <p>短、直接、能立刻上手。</p>
-            <div class="cover-chips">
-              <span>Mac 新手</span>
-              <span>Ghostty 用户</span>
-              <span>tmux 入门</span>
-            </div>
-            <a class="cover-url" href="https://liyongzheng666.github.io/tmux-ghostty-guide-pages/" target="_blank" rel="noreferrer">liyongzheng666.github.io/tmux-ghostty-guide-pages/</a>
-          </div>
-        </div>
         <div class="hero-actions">
           <a class="button button-primary" href="#start">开始</a>
+          <a class="cover-url" href="https://liyongzheng666.github.io/tmux-ghostty-guide-pages/" target="_blank" rel="noreferrer">在线</a>
         </div>
       </article>
 
       <aside class="panel hero-side fade-in">
         <div class="cover-stage">
-          <div class="cover-stage-header">
-            <span class="cover-badge"><span class="cover-badge-dot"></span> 怎么开始</span>
-          </div>
           <div class="cover-stage-body">
             <div class="cover-title">三步</div>
-            <div class="cover-description">先开工作区，再分页面，最后按需分屏。</div>
             <div class="journey-command">tmux new -As farm</div>
             <div class="journey-grid">
               <div class="journey-card">
